@@ -8,5 +8,6 @@ if [ ! -e /tmp/generator.py ]; then
     echo "cannot find generator script. Check yourself before you break youself."
 fi
 
-/tmp/generator.py $DEVICE $SERVER $TOPIC
+mosquitto -d -c /etc/mosquitto/mosquitto.conf
+/tmp/generate.py $SERVER -t $TOPIC -s $DEVICE
 

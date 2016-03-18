@@ -15,13 +15,16 @@ RUN apt-get update && apt-get install -y \
     python-software-properties \
     software-properties-common
 
-RUN apt-add-repository ppa:mosquitto-dev/mosquitto-ppa && apt-get update && apt-get install -y mosquitto
+RUN apt-add-repository ppa:mosquitto-dev/mosquitto-ppa && apt-get update && \
+    apt-get install -y mosquitto mosquitto-clients
 
-RUN curl -o /tmp/generator.py https://raw.githubusercontent.com/truthbk/dogbox/master/generators/generator.py && \
+RUN curl -o /tmp/generate.py https://raw.githubusercontent.com/deterralba/mqtt-pusher/master/generate.py && \
     curl -o /tmp/gen_launch.sh https://raw.githubusercontent.com/truthbk/dogbox/master/generators/gen_launch.sh && \
-    curl -o /tmp/requirements.txt https://raw.githubusercontent.com/truthbk/dogbox/master/generators/requirements.txt && \
-    pip install -r /tmp/requirements.txt
+    curl -o /tmp/requirements.txt https://raw.githubusercontent.com/truthbk/dogbox/master/generators/requirements.txt
+
+RUN pip install -r /tmp/requirements.txt && \
+    chmod +x /tmp/gen_launch.sh && chmod +x /tmp/generate.py
 
 # this should launch it.
-RUN /tmp/gen_launch.sh
+ENTRYPOINT /bin/bash -l /tmp/gen_launch.sh
 
