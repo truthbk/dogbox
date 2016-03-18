@@ -4,8 +4,9 @@
 : "${SERVER:?Need to set SERVER env var.}"
 : "${DEVICE:?Need to set DEVICE env var.}"
 
-if [ ! -e /tmp/generator.py ]; then
+if [ ! -e /tmp/generate.py ]; then
     echo "cannot find generator script. Check yourself before you break youself."
+    exit 1
 fi
 
 mosquitto -d -c /etc/mosquitto/mosquitto.conf
