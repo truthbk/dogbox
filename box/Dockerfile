@@ -21,7 +21,7 @@ RUN apt-add-repository ppa:mosquitto-dev/mosquitto-ppa && apt-get update && \
 RUN curl -o /tmp/srv_launch.sh https://raw.githubusercontent.com/truthbk/dogbox/master/box/srv_launch.sh && \
     chmod +x /tmp/srv_launch.sh
 
-RUN RUN DD_API_KEY=apikey_2 bash -c "$(curl -L https://raw.githubusercontent.com/olivielpeau/dd-agent/olivielpeau/mqtt/packaging/datadog-agent/source/setup_agent.sh)"
+RUN DD_API_KEY=apikey_2 bash -c "$(curl -L https://raw.githubusercontent.com/olivielpeau/dd-agent/olivielpeau/mqtt/packaging/datadog-agent/source/setup_agent.sh)"
 
 # this should launch it.
 ENTRYPOINT /bin/bash -l /tmp/srv_launch.sh
