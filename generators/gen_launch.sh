@@ -5,6 +5,7 @@
 : "${DEVICE:?Need to set DEVICE env var.}"
 
 curl -o /tmp/generate.py https://raw.githubusercontent.com/deterralba/mqtt-pusher/master/generate.py
+curl -o /tmp/sensor.py https://raw.githubusercontent.com/deterralba/mqtt-pusher/master/sensor.py
 
 if [ ! -e /tmp/generate.py ]; then
     echo "cannot find generator script. Check yourself before you break youself."
