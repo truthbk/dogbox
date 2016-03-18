@@ -9,5 +9,6 @@ if [ ! -e /tmp/generator.py ]; then
 fi
 
 mosquitto -d -c /etc/mosquitto/mosquitto.conf
+sleep 5
 /tmp/generate.py $SERVER -t $TOPIC -s $DEVICE
 
