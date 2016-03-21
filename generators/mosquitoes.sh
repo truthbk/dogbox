@@ -1,6 +1,6 @@
 #!/bin/bash
 
-flavors=( "pressure" "light" "temperature" "humidity" )
+flavors=( "pressure" "light" "temperature" )
 
 if [ $# -ne 3 ];
 then
